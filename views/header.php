@@ -1,0 +1,14 @@
+<!-- add the default application setup here: -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    Hello
+
+  </body>
+</html>
