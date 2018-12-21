@@ -11,6 +11,10 @@
         </li><!-- /nav-item -->
 
         <li class="nav-item">
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Signup</a>
+        </li><!-- /nav-item -->
+
+        <li class="nav-item">
             <?php if (isset($_SESSION['user'])): ?>
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
             <?php else: ?>
