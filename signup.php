@@ -3,7 +3,7 @@
 
 <h1>Register your account</h1>
 
-<form action="app/users/signup.php" method="post">
+<form action="app/users/create_account.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" type="email" name="email" id="email" required>
