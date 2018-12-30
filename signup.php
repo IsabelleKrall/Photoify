@@ -1,7 +1,7 @@
 <?php require __DIR__.'/views/header.php';
 ?>
 
-<h1>Sign up</h1>
+<h1>Register your account</h1>
 
 <form action="app/users/signup.php" method="post">
         <div class="form-group">
