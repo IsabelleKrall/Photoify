@@ -34,26 +34,13 @@ if ($user['email'] == $email || $user['username'] == $username) {
 
 
   // Insert statements:
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
     $statement->bindParam(':name', $name, PDO::PARAM_STR);
-    $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
     $statement->execute();
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-
-        $_SESSION['user'] = [
-                  'id' => $id,
-                  'email' => $email,
-                  'name' => $name,
-                  'profile_bio' => $profile_bio,
-                  'username' => $username,
-                  'profile_pic' => $profile_pic,
-        ];
-
-  $_SESSION['message'] = 'Log in to your new account';
-  redirect('/login.php');
-  }
 
   redirect('/');
 }
