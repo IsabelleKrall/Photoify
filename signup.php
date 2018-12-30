@@ -13,25 +13,25 @@
         <div class="form-group">
             <label for="username">Username</label>
             <input class="form-control" type="username" name="username" id="username" required>
-            <small class="form-text text-muted">Please provide the your username (passphrase).</small>
+            <small class="form-text text-muted">Please provide your username.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control" type="name" name="name" id="name" required>
-            <small class="form-text text-muted">Please provide the your name (passphrase).</small>
+            <small class="form-text text-muted">Please provide your name.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <small class="form-text text-muted">Please provide the your password (passphrase).</small>
+            <small class="form-text text-muted">Please provide your password.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
-            <label for="r_password">Repeat Password</label>
-            <input class="form-control" type="password" name="r_password" id="r_password" required>
-            <small class="form-text text-muted">Please provide the your password (passphrase).</small>
+            <label for="rep_password">Repeat Password</label>
+            <input class="form-control" type="password" name="rep_password" id="rep_password" required>
+            <small class="form-text text-muted">Please repeat your password.</small>
         </div><!-- /form-group -->
 
         <button type="submit" name ="submit" class="btn btn-primary">Create account</button>
