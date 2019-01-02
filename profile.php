@@ -1,28 +1,40 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<?php
+declare(strict_types=1);
+require __DIR__.'/views/header.php';
+?>
 
-    <h1>Profile</h1>
+<article>
+  <?php if (isset($_SESSION['user'])): ?>
+      <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+  <?php endif; ?>
+</article>
 
-       <form action="app/users/picture.php" method="post" enctype="multipart/form-data">
 
-        <div class="profile_img">
-         <?php if (isset($_SESSION['user'])): ?>
-           <img class="profile_pic" src=<?php echo"/app/users/upload/".$_SESSION['user']['profile_pic'];?>>
-         <?php endif; ?>
-          <div>
-            <p><label for="images">Change photo</label></p>
-            <input for="profile_pic"type="file"  value="upload file" name="profile_pic" id="profile_pic" accept=".png, .jpeg, .jpg" multiple required>
-                </div><br>
-        </div>
-                <button type="submit">Upload</button>
-        </form>
+<!-- //To-do: add statement if pp exist - show pp. -->
 
-<form action="app/users/profile_edit.php" method="post" enctype="multipart/form-data">
-<?= $_SESSION['user']['name'];?> <br>
-<?= $_SESSION['user']['email']; ?><br>
-<?= $_SESSION['user']['username']; ?><br>
-<?= $_SESSION['user']['profile_bio']; ?><br>
-<a href="editprofile.php">EDIT</a>
+
+<form action="/views/profile.php" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="image">Choose a profile picture</label>
+        <input type="file" name="profile_pic" id="image" accept=".jpg", ".jpeg", ".png" required>
+    </div>
+
+    <button type="submit" name ="submit">Upload picture</button>
 </form>
-<!--<a href="/app/users/delete.php">Delete my profile</a> -->
+
+<div class="biography">
+    <form action="/app/users/bio.php" method="post" enctype="multipart/form-data">
+        <div class="bio-form">
+            <p>Name:</p> <!--add echo statement here-->
+            <p>Username:</p> <!--add echo statement here-->
+            <p>Biography:</p> <!--add echo statement here-->
+            <textarea class="bio-text" type="user_bio" name="user_bio" id="user_bio"></textarea>
+        </div>
+    </div>
+    <button type="submit">Done</button><br>
+</form>
+</div>
+
+
 
 <?php require __DIR__.'/views/footer.php'; ?>
