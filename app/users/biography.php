@@ -15,7 +15,7 @@ if (isset($_POST['profile_bio'])) {
       $statement->bindParam(':profile_bio', $bio, PDO::PARAM_STR);
       $statement->bindParam(':id', $id, PDO::PARAM_INT);
       $statement->execute();
-      $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+      $statement = $pdo->prepare('SELECT * FROM Users WHERE id = :id');
       $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
       $statement->execute();
       $user = $statement->fetch(PDO::FETCH_ASSOC);
