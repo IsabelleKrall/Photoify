@@ -8,15 +8,15 @@ require __DIR__.'/../autoload.php';
 if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
-    //Prepare, bind email parameter and execute the database query.
+    //Prepares, binds email parameter and executes the database query.
     $statement = $pdo->prepare('SELECT * FROM Users WHERE email = :email');
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->execute();
 
-    // Fetch the user as an associative array.
+    //Fetch the user as an associative array.
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // If we couldn't find the user in the database, redirect back to the login page with our custom redirect function.
+    //If we dont find the user in db, redirect back to the login page.
     if (!$user) {
         redirect('/login.php');
     }
