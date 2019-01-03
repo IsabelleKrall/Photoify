@@ -23,7 +23,7 @@ require __DIR__.'/views/header.php';
 </form>
 
 <div class="biography">
-    <form action="/app/users/bio.php" method="post" enctype="multipart/form-data">
+    <form action="/app/users/biography.php" method="post" enctype="multipart/form-data">
         <div class="bio-form">
             <p>Name:</p> <!--add echo statement here-->
             <p>Username:</p> <!--add echo statement here-->
