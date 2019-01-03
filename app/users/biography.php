@@ -11,7 +11,7 @@ if (isset($_POST['profile_bio'])) {
             die(var_dump($pdo->errorInfo()));
       }
 
-      //Binds variables to parameteres for INSERT statement
+      //Binds variables to parameteres for insert statement
       $statement->bindParam(':profile_bio', $bio, PDO::PARAM_STR);
       $statement->bindParam(':id', $id, PDO::PARAM_INT);
       $statement->execute();
