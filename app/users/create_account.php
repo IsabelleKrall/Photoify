@@ -44,4 +44,5 @@ if ($user['email'] == $email || $user['username'] == $username) {
 
   redirect('/');
 }
+}
 ?>

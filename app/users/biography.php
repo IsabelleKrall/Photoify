@@ -28,6 +28,6 @@ if (isset($_POST['profile_bio'])) {
           'profile_bio' => $user['profile_bio'],
           'created_at' => $user['created_at'],
           'username' => $user['username'],
-        ];
+          ];
 
 redirect('/profile.php');
