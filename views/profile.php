@@ -10,8 +10,8 @@ if(isset($_FILES['profile_pic'])) {
   if(!in_array($profilePic['type'], ['image/png', 'image/jpeg'])) {
     $errors[] = 'error';
   }
-  
-//Check img size
+
+//Checks img size
 if($profilePic['size'] > 4194304) {
   $errors[] = 'Image is too big';
 }
