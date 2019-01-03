@@ -3,11 +3,11 @@
 
 <h1>Register your account</h1>
 
-<form action="app/users/create_account.php" method="post">
+<form action="app/users/register.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" type="email" name="email" id="email" required>
-            <small class="form-text text-muted">Please provide the your email address.</small>
+            <small class="form-text text-muted">Please provide your email address.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
@@ -17,9 +17,15 @@
         </div><!-- /form-group -->
 
         <div class="form-group">
-            <label for="name">Name</label>
-            <input class="form-control" type="name" name="name" id="name" required>
-            <small class="form-text text-muted">Please provide your name.</small>
+            <label for="firstName">First name</label>
+            <input class="form-control" type="name" name="firstName" id="firstName" required>
+            <small class="form-text text-muted">Please provide your first name.</small>
+        </div><!-- /form-group -->
+
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input class="form-control" type="name" name="lastName" id="lastName" required>
+            <small class="form-text text-muted">Please provide your last name.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
@@ -29,9 +35,9 @@
         </div><!-- /form-group -->
 
         <div class="form-group">
-            <label for="rep_password">Repeat Password</label>
-            <input class="form-control" type="password" name="rep_password" id="rep_password" required>
-            <small class="form-text text-muted">Please repeat your password.</small>
+            <label for="password">Confirm Password</label>
+            <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" required>
+            <small class="form-text text-muted">Please confirm your password.</small>
         </div><!-- /form-group -->
 
         <button type="submit" name ="submit" class="btn btn-primary">Create account</button>
