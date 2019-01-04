@@ -18,15 +18,17 @@
 
         <div class="form-group">
             <label for="firstName">First name</label>
-            <input class="form-control" type="name" name="firstName" id="firstName" required>
+            <input class="form-control" type="text" name="firstName" id="firstName" required>
             <small class="form-text text-muted">Please provide your first name.</small>
-        </div><!-- /form-group -->
+        </div>
+        <!-- /form-group -->
 
         <div class="form-group">
             <label for="lastName">Last name</label>
-            <input class="form-control" type="name" name="lastName" id="lastName" required>
+            <input class="form-control" type="text" name="lastName" id="lastName" required>
             <small class="form-text text-muted">Please provide your last name.</small>
-        </div><!-- /form-group -->
+        </div>
+        <!-- /form-group -->
 
         <div class="form-group">
             <label for="password">Password</label>
