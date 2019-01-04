@@ -2,12 +2,14 @@
 declare(strict_types=1);
 require __DIR__.'/../app/autoload.php';
 
+
+
 $userId = $_SESSION['user']['id'];
 $errors = [];
 
 if(isset($_FILES['profile_pic'])) {
   $profilePic = $_FILES['profile_pic'];
-  if(!in_array($profilePic['type'], ['image/png', 'image/jpeg'])) {
+  if(!in_array($profilePic['type'], ['image/png', 'image/jpeg', 'image/jpg'])) {
     $errors[] = 'error';
   }
 
@@ -40,7 +42,8 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 $_SESSION['logedin'] = [
     'id' => $user['id'],
     'email' => $user['email'],
-    'name' => $user['name'],
+    'firstName' => $user['first_name'],
+    'lastName' => $user['last_name'],
     'profile_pic' => $user['profile_pic'],
     'profile_bio' => $user['profile_bio'],
     'created_at' => $user['created_at'],
