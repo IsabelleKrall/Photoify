@@ -1,5 +1,6 @@
 body{
   height: 100vh;
+  width: 100vw;
   color: black;
 }
 
@@ -24,19 +25,41 @@ a{
 }
 
 .profile-container{
-  width: 200px;
-  height: 400px;
+  /* width: 200px;
+  height: 400px; */
 }
 
 .image-box{
-  width: 50px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-image-container{
+  
 }
 .profile-image{
-  width: 30px;
-  height: 30px;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
 }
 
 .profile-pic{
 
+}
+
+.private-info{
+  color: grey;
+}
+
+.profile-container{
+  width: 100vw;
+  height: 30%;
+  border: 1px solid grey;
+}
+
+.user-profile{
+}
+
+.profile-edit{
+  color: grey;
 }
