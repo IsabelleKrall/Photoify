@@ -30,7 +30,8 @@
         <button type="submit" class="">Submit</button>
     </a>
 </form>
-<?php if(isset($_SESSION['error'])):?>
+<?php
+if(isset($_SESSION['error'])):?>
 <?= $_SESSION['error']; ?>
 <?php endif;?>
 <?php require __DIR__.'/views/footer.php';?>

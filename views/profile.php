@@ -52,6 +52,7 @@ $_SESSION['logedin'] = [
     'description' => $user['description']
 ];
 
+
 redirect('/profile.php');
 }
 ?>

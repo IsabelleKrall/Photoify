@@ -1,7 +1,8 @@
 body{
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   color: black;
+  font: Helvetica;
 }
 
 a{
@@ -35,7 +36,7 @@ a{
 }
 
 .profile-image-container{
-  
+
 }
 .profile-image{
   width: 10%;
@@ -51,8 +52,9 @@ a{
   color: grey;
 }
 
+
 .profile-container{
-  width: 100vw;
+  /* width: 100vw; */
   height: 30%;
   border: 1px solid grey;
 }
@@ -62,4 +64,34 @@ a{
 
 .profile-edit{
   color: grey;
+}
+
+
+/* .user-post-container{
+  width: 100vw;
+  display: flex;
+}
+
+.posts{
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+
+}
+*/
+
+.img-posts{
+  width: 100%;
+  height: 100%;
+
+}
+
+.create-post{
+  color: grey;
+}
+
+.caption{
+
 }

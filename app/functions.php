@@ -8,3 +8,28 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+function getPosts(INT $id, $pdo) {
+    $statement = $pdo->prepare('SELECT * FROM Posts WHERE user_id = :id');
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $posts;
+}
+
+function getSinglePost(INT $id, $pdo) {
+    $statement = $pdo->prepare('SELECT * FROM Posts WHERE id = :id');
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $singlePost = $statement->fetch(PDO::FETCH_ASSOC);
+    return $singlePost;
+}
+
+
+function getLikes(INT $post_id, $pdo) {
+  $statement = $pdo->prepare('SELECT * FROM Likes WHERE post_id = :id');
+  $statement->bindParam(':id', $post_id, PDO::PARAM_INT);
+  $statement->execute();
+  $getLikes = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $getLikes;
+}

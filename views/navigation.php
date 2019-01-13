@@ -15,7 +15,8 @@
     <?php if (isset($_SESSION['user'])): ?>
       </li><!-- /nav-item -->
         <a class="nav-link" href="/profile.php">Profile</a>
-        <a class="nav-link" href="/update-user.php">Update</a>
+        <a class="nav-link" href="/posts.php">Create post</a>
+        <a class="nav-link" href="/update-user.php">Account settings</a>
         <a class="nav-link" href="/app/users/logout.php">Logout</a>
     <?php else: ?>
         <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Login</a>

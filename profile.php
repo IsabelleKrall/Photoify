@@ -3,8 +3,6 @@ declare(strict_types=1);
 require __DIR__.'/views/header.php';
 ?>
 
-
-
 <div class="profile-container">
 
     <div class="profile-image-container">
@@ -13,15 +11,14 @@ require __DIR__.'/views/header.php';
 
     <form action="/views/profile.php" method="post" enctype="multipart/form-data">
         <div>
-            <label for="image">Choose a profile picture</label>
+            <label for="image">Choose a profile picture</label></br>
             <input type="file" name="profile_pic" id="image" accept=".jpg", ".jpeg", ".png" required>
         </div>
-
         <button type="submit" name ="submit">Upload picture</button>
     </form>
 
     <h1> <?=$_SESSION['user']['username'];?></h1>
-
+      <h3>Bio: <?=$_SESSION['logedin']['profile_bio'];?></h3>
 
   <div class="user-profile">
         <a href="update-user.php">
@@ -30,38 +27,72 @@ require __DIR__.'/views/header.php';
         <a href="/app/users/logout.php">
             <p class="profile-edit">Logout</p>
         </a>
-  </div>
-
-</div>
-
+  </div> <!--//user-profile-->
+</div> <!--//profile-container-->
 
 
+<a href="posts.php">
+  <h1 class="create-post">Create post</h1>
+</a>
+<h1> POSTS</h1></br>
 
-<!-- <div class="profile-content">
-  <a href="/app/users/editprofile.php">
-    <p class="edit-profile">Edit profile</p></a>
-  <a href="/password_update.php">
-    <p class="change-password"> Change password</p></a>
-  <a href="/app/users/logout.php">
-    <p class="log-out">Log out</p></a>
-</div> -->
+<div class="user-post-container">
+
+    <div class="posts">
+      <?php
+      //hämta alla posts ifrån posts där user id är = session user id
+      $statement = $pdo->prepare('SELECT * from Posts WHERE user_id = :id');
+      $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+      $statement->execute();
+      $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+      ?>
 
 
-</div>
+<?php
+      foreach ($user as $key => $value) {
+        $picFilePath = '/app/uploads/' . $_SESSION['user']['id'] . '/posts/' . $value['content'];
+        ?>
+
+        <!-- //Likes: -->
+
+        <?php
+        $likes = getLikes((int)$value['id'], $pdo);
+        var_dump($likes);
+
+      ?>
+
+        <form action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
+          <button type="submit" name ="like">Like</button>
+
+        </form>
 
 
-<div class="bio">
-    <form action="/app/users/biography.php" method="post" enctype="multipart/form-data">
-        <div class="bio-form">
-            <p>Name:</p> <!--add echo statement here-->
-            <p>Username:</p> <!--add echo statement here-->
-            <p>Biography:</p> <!--add echo statement here--> <?php echo $_SESSION['logedin']['profile_bio']; ?></p>
-            <textarea class="bio-text" type="user_bio" name="user_bio" id="user_bio"></textarea>
+        <img class="img-posts" src="<?php echo $picFilePath ?>"></br>
+        <div class="pic-description"><?= $value['description']; ?></div>
+        <div class="pic-description"><?= $value['created_at']; ?></div>
+
+        <div class="edit">
+          <a href="edit.php?id=<?php echo $value['id'] ?>">Edit post</a>
         </div>
-    </div>
-    <button type="submit">Done</button><br>
-</form>
-</div>
+        <?php
+      };
+      ?>
+
+
+
+
+
+    </div><!--//posts-->
+
+</div><!--//user-post-container-->
+
+
+
+
+
+
+
+
 
 
 
