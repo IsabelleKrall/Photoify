@@ -9,17 +9,8 @@
       <p><b>Write something about this photo
         <input type="text" name="description" placeholder="Write something..">
       </b></p><br>
+      <input type="hidden" name="username" value="<?php echo $_SESSION['user']['username']?>">
       <button type="submit" name="button">Upload</button>
     </form>
-    <section>
-    <div class="posts">
-
-      <img src="<?= $_SESSION['logedin']['content']; ?>"></br>
-
-      <img src="<?= $_SESSION['logedin']['content'];?>" alt="">
-
-
-    </div>
-
 
 <?php require __DIR__.'/views/footer.php'; ?>
