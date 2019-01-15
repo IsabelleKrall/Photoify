@@ -37,20 +37,19 @@ if (isset($_POST['profile_bio'], $_POST['firstName'], $_POST['lastName'], $_POST
         $statement->execute();
       }
 
-  //Keep this below???:
-    // $statement = $pdo->prepare('SELECT * FROM Users WHERE id = :id');
-    // $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
-    // $statement->execute();
-    // $user = $statement->fetch(PDO::FETCH_ASSOC);
-    // $_SESSION['logedin'] = [
-    //     'id' => $user['id'],
-    //     'email' => $user['email'],
-    //     'firstName' => $user['firstName'],
-    //     'lastName' => $user['lastName'],
-    //     'profile_pic' => $user['profile_pic'],
-    //     'profile_bio' => $user['profile_bio'],
-    //     'username' => $user['username'],
-    //     ];
+    $statement = $pdo->prepare('SELECT * FROM Users WHERE id = :id');
+    $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['logedin'] = [
+        'id' => $user['id'],
+        'email' => $user['email'],
+        'firstName' => $user['firstName'],
+        'lastName' => $user['lastName'],
+        'profile_pic' => $user['profile_pic'],
+        'profile_bio' => $user['profile_bio'],
+        'username' => $user['username'],
+        ];
 
     redirect('/profile.php');
   };
