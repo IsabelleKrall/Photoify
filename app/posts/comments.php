@@ -25,4 +25,4 @@ if (isset($_POST['post_content'], $_POST['post_id'], $_POST['user_id'], $_POST['
 };
 
 
-redirect('/profile.php');
+redirect('/index.php');
