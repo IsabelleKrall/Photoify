@@ -8,8 +8,8 @@ require __DIR__.'/views/header.php';
     <?php
     $postId = $_GET['id'];
     $singlePost = getSinglePost((int)$postId, $pdo);
-    $picFilePath = '/app/uploads/' . $singlePost['user_id']. '/posts/' . $singlePost['content'];
 
+    $picFilePath = '/app/uploads/'. $singlePost['content'];
     ?>
 
   <img class="img-posts" src="<?php echo $picFilePath; ?>">
