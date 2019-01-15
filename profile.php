@@ -4,21 +4,24 @@ require __DIR__.'/views/header.php';
 ?>
 
 <div class="profile-container">
+  <div class="profile-image-container">
 
-    <div class="profile-image-container">
-         <img class="profile-image" src="/views/img/<?= $_SESSION['logedin']['profile_pic'];?>" alt="">
-    </div>
+    <?php
+    if ($_SESSION['user']['profile_pic'] === "default.jpg") {
+      ?>
+          <img class="profile-image" src="/views/img/default.jpg" alt="avatar">
+    <?php
+    } else {
+      ?>
+          <img class="profile-image" src="/views/img/<?= $_SESSION['logedin']['profile_pic'];?>" alt="">
+      <?php
 
-    <form action="/views/profile.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="image">Choose a profile picture</label></br>
-            <input type="file" name="profile_pic" id="image" accept=".jpg", ".jpeg", ".png" required>
-        </div>
-        <button type="submit" name ="submit">Upload picture</button>
-    </form>
+  }
+    ?>
+
 
     <h1> <?=$_SESSION['user']['username'];?></h1>
-      <h3>Bio: <?=$_SESSION['logedin']['profile_bio'];?></h3>
+      <h3>About: <?=$_SESSION['logedin']['profile_bio'];?></h3>
 
   <div class="user-profile">
         <a href="update-user.php">
@@ -32,9 +35,9 @@ require __DIR__.'/views/header.php';
 
 
 <a href="posts.php">
-  <h1 class="create-post">Create post</h1>
+  <button type="button" name="create-post">Create new post</button>
 </a>
-<h1> POSTS</h1></br>
+
 
 <div class="user-post-container">
 
@@ -50,7 +53,7 @@ require __DIR__.'/views/header.php';
 
 <?php
       foreach ($user as $key => $value) {
-        $picFilePath = '/app/uploads/' . $_SESSION['user']['id'] . '/posts/' . $value['content'];
+        $picFilePath = '/app/uploads/' . $value['content'];
         ?>
 
         <!-- Likes: -->
@@ -71,8 +74,8 @@ require __DIR__.'/views/header.php';
 
 
         <img class="img-posts" src="<?php echo $picFilePath ?>"></br>
-        <div class="pic-description"><?= $value['description']; ?></div>
         <div class="pic-description"><?= $value['created_at']; ?></div>
+        <div class="pic-description"><?= $value['description']; ?></div>
 
         <div class="edit">
           <a href="edit.php?id=<?php echo $value['id'] ?>">Edit post</a>
@@ -80,7 +83,10 @@ require __DIR__.'/views/header.php';
 
 
 
+
       <!-- comments -->
+
+      <div class="comments"><u><b>Comments:</b></u></div>
 
       <?php
       $statement = $pdo->prepare('SELECT * from Comments WHERE post_id = :post_id');
@@ -92,6 +98,7 @@ require __DIR__.'/views/header.php';
         print_r($commentValue['username'].": ".$commentValue['content']);
         if($_SESSION['user']['id'] == $commentValue['user_id']){
           ?>
+        </br>
             <a href="edit-comment.php?id=<?php echo $commentValue['id'] ?>">Edit Comment</a>
           <?php
         }
