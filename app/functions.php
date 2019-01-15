@@ -33,3 +33,11 @@ function getLikes(INT $post_id, $pdo) {
   $getLikes = $statement->fetchAll(PDO::FETCH_ASSOC);
   return $getLikes;
 }
+
+function getUserProfile($user_id, $pdo) {
+  $statement = $pdo->prepare('SELECT * from Users WHERE id = :id');
+  $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+  $statement->execute();
+  $updateUser = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $updateUser;
+}

@@ -7,21 +7,22 @@ require __DIR__.'/views/header.php';
   <div class="profile-image-container">
 
     <?php
-    if ($_SESSION['user']['profile_pic'] === "default.jpg") {
-      ?>
-          <img class="profile-image" src="/views/img/default.jpg" alt="avatar">
-    <?php
-    } else {
-      ?>
-          <img class="profile-image" src="/views/img/<?= $_SESSION['logedin']['profile_pic'];?>" alt="">
+      if ($_SESSION['user']['profile_pic'] === "default.jpg") {
+        ?>
+            <img class="profile-image" src="/views/img/default.jpg" alt="avatar">
       <?php
+      } else {
+        ?>
+            <img class="profile-image" src="/views/img/<?= $_SESSION['logedin']['profile_pic'];?>" alt="">
+        <?php
+        }
 
-  }
+      $user_id = $_SESSION['user']['id'];
+      $updateUser = getUserProfile($user_id, $pdo);
     ?>
 
-
-    <h1> <?=$_SESSION['user']['username'];?></h1>
-      <h3>About: <?=$_SESSION['logedin']['profile_bio'];?></h3>
+  <h1> <?= $updateUser[0]['username'];?></h1>
+  <h3><?= $updateUser[0]['profile_bio'];?></h3>
 
   <div class="user-profile">
         <a href="update-user.php">
