@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 // In this file we store/insert new posts in the database.
+
 if(isset($_FILES['content'], $_POST['username'])) {
     $content = $_FILES['content'];
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);

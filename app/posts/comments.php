@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__.'/../autoload.php';
-// In this file we store comments in the database.
+// In this file we store/insert comments in the database.
 
 
 if (isset($_POST['post_content'], $_POST['post_id'], $_POST['user_id'], $_POST['username'])) {

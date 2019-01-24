@@ -31,12 +31,16 @@
 
             foreach ($newsfeedPosts as $newsfeedPost => $newsfeedPostValue){
               $postFilePath = '/app/uploads/' . $newsfeedPostValue['content'];
-
+              if ($newsfeedPostValue['user_id'] == $_SESSION['user']['id']) {
+                ?><h4><a href="/profile.php"><?php  echo $newsfeedPostValue['username'];?></a> </h4><?php
+              } else {
+                ?><a href="/view-profile.php?id=<?=  $newsfeedPostValue['user_id']?>"><h4><?php echo $newsfeedPostValue['username']?></h4></a>
+                <?php
+              }
               ?>
 
 
               <!-- //Add link + make new file/page for users visiting other users -->
-              <a href=""><h4><?php echo $newsfeedPostValue['username']?></h4></a>
                 <p><?php echo $newsfeedPostValue['created_at']?></p>
 
                 <img class="img-posts" src="<?php echo $postFilePath?>"></br>

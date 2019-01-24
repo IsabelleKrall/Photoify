@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__.'/../autoload.php';
-// In this file we edit posts in the database.
+// In this file we edit and delete comments in the database.
 
 if(isset($_POST['content'], $_POST['id'])){
   $newComment  = trim(filter_var($_POST['content'], FILTER_SANITIZE_STRING));
