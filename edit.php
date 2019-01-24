@@ -4,7 +4,7 @@ require __DIR__.'/views/header.php';
 ?>
 
 
-
+<div class="jumbotron">
     <?php
     $postId = $_GET['id'];
     $singlePost = getSinglePost((int)$postId, $pdo);
@@ -33,6 +33,6 @@ require __DIR__.'/views/header.php';
 
 </form>
 
-
+</div>
 
 <?php require __DIR__.'/views/footer.php'; ?>

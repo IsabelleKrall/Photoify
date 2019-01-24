@@ -1,5 +1,6 @@
 body {
   width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   background-color: #FAFAFA;
@@ -7,15 +8,27 @@ body {
 }
 
 .jumbotron{
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: white;
 }
 
+.postsedit{
+  margin-bottom: 180px;
+}
+
+.feed{
+  margin-left: 25%;
+}
+
 .profile{
   width: 100%;
-  margin-top: -50px; 
+  margin-top: -50px;
+}
 
+.username{
+  color: #4582EC;
+  margin-top: 50px;
 }
 
 .profile-container {
@@ -40,7 +53,19 @@ body {
   display: flex;
   margin-left: 30%;
   margin-top: 35px;
+}
 
+.profile-img-circle-visit{
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #D8D9DA;
+  /* justify-content: center; */
+  margin-left: -100px;
+  margin-top: -30px;
+  margin-r: 0px;
 }
 
 .user-info-box{
@@ -54,6 +79,24 @@ body {
   text-align: left;
   margin-top: 40px;
   display: grid;
+}
+
+.user-info-box-visit{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 0px;
+  margin-left: 40px;
+  display: grid;
+}
+
+.visit-profile{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .user-buttons{
@@ -93,5 +136,69 @@ body {
 
 .change-password {
   font-size: 30px;
+}
 
+
+footer {
+  width: 100%;
+  height: 30vh;
+  background-color: #343A40;
+  margin-top: -100px;
+}
+
+
+.footermenu {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 100px;
+}
+
+.footermenu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footermenu-content a {
+  /* padding-top: 15px; */
+  color: white;
+  text-decoration: none;
+}
+
+.footer-title{
+  font-weight: 500;
+  font-size: 40px;
+  margin: 0;
+  color: white;
+}
+
+
+.social-icons {
+  /* padding: 30px; */
+  width: 60px;
+  height: 60px;
+}
+
+.arrow{
+  width: 15px;
+  height: 15px;
+  margin-left: 16px;
+}
+
+.to-top{
+  color: white;
+  font-size: 20px;
+}
+.backtotop{
+  margin-right: 0;
+}
+
+
+a:hover{
+  color: black;
 }

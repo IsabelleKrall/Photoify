@@ -1,16 +1,20 @@
 <?php require __DIR__.'/views/header.php'; ?>
+<div class="jumbotron">
+  <div class="postsedit">
 
-    <h4>Create a new post</h4>
+    <h2>Create a new post</h2>
     <form action="app/posts/posts.php" method="post" enctype="multipart/form-data">
 
-        <p><b>Add photo
+        <h6>Add photo</h6>
         <input type="file" name="content" id="content" type="file" multiple="">
-      </b></p></br>
-      <p><b>Write something about this photo
+      </br></br>
+      <h6>Write something about this photo</h6>
         <input type="text" name="description" placeholder="Write something..">
-      </b></p><br>
+      <br>
       <input type="hidden" name="username" value="<?php echo $_SESSION['user']['username']?>">
       <button type="submit" name="button">Upload</button>
     </form>
 
+  </div>
+  </div>
 <?php require __DIR__.'/views/footer.php'; ?>

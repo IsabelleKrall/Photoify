@@ -1,8 +1,9 @@
 <?php require __DIR__.'/views/header.php'; ?>
+<div class="jumbotron">
+
 
 <h4>Update/edit your account</h4>
 
-<div class="profile-image-container">
 
   <?php
   if ($_SESSION['user']['profile_pic'] === "default.jpg") {
@@ -107,6 +108,7 @@
     <p class="profile-edit">Logout</p>
 </a>
 
+</div>
 
 
 <?php require __DIR__.'/views/footer.php';?>

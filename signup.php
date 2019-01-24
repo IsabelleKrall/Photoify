@@ -1,6 +1,6 @@
 <?php require __DIR__.'/views/header.php';
 ?>
-
+<div class="jumbotron">
 <h1>Register your account</h1>
 
 <form action="app/users/register.php" method="post">
@@ -44,6 +44,7 @@
 
         <button type="submit" name ="submit" class="btn btn-primary">Create account</button>
     </form>
+  </div>
 
 
 <?php require __DIR__.'/views/footer.php'; ?>
